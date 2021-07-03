@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class ShootIntensityDisplay : MonoBehaviour
 {
+  public float LineWidth = 0.03f;
   private LineRenderer _lineRenderer;
   private Vector3 _initialPosition;
   private Vector3 _currentPosition;
+  private Collider2D _collider;
 
   // Start is called before the first frame update
   void Start()
   {
     _lineRenderer = gameObject.AddComponent<LineRenderer>();
-    _lineRenderer.startWidth = 0.1f;
-    _lineRenderer.endWidth = 0.1f;
+    _lineRenderer.startWidth = LineWidth;
+    _lineRenderer.endWidth = LineWidth;
     _lineRenderer.enabled = false;
+    _collider = gameObject.GetComponent<Collider2D>();
   }
 
   // Update is called once per frame
@@ -32,7 +35,6 @@ public class ShootIntensityDisplay : MonoBehaviour
 
   private void OnMouseDrag()
   {
-    Debug.Log("Wee");
     _currentPosition = GetCurrentMousePosition().GetValueOrDefault();
     _lineRenderer.enabled = true;
     _lineRenderer.positionCount = 2;
@@ -53,7 +55,6 @@ public class ShootIntensityDisplay : MonoBehaviour
     if (plane.Raycast(ray, out rayDistance))
     {
       return ray.GetPoint(rayDistance);
-
     }
 
     return null;
