@@ -27,6 +27,11 @@ public class BallScript : MonoBehaviour
     _rigidBody.AddForce(direction);
   }
 
+  public bool IsMoving()
+  {
+    return _rigidBody.velocity.magnitude > 0;
+  }
+
   private void OnTriggerStay2D(Collider2D collision)
   {
     var friction = collision.gameObject.GetComponent<Friction>();
