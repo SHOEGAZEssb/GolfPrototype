@@ -8,6 +8,7 @@ public class ShootIntensityDisplay : MonoBehaviour
   private Vector3 _initialPosition;
   private Vector3 _currentPosition;
   private BallScript _ball;
+  private bool _initialPositionValid = false;
 
   // Start is called before the first frame update
   void Start()
@@ -30,6 +31,7 @@ public class ShootIntensityDisplay : MonoBehaviour
   {
     if (IsBallMoving())
       return;
+    _initialPositionValid = true;
     _initialPosition = this.gameObject.transform.position;
     _lineRenderer.SetPosition(0, _initialPosition);
     _lineRenderer.positionCount = 1;
@@ -38,7 +40,7 @@ public class ShootIntensityDisplay : MonoBehaviour
 
   private void OnMouseDrag()
   {
-    if (IsBallMoving())
+    if (IsBallMoving() || !_initialPositionValid)
       return;
     _currentPosition = GetCurrentMousePosition().GetValueOrDefault();
     _currentPosition.z = -1;
@@ -53,8 +55,9 @@ public class ShootIntensityDisplay : MonoBehaviour
 
   void OnMouseUp()
   {
-    if (IsBallMoving())
+    if (IsBallMoving() || !_initialPositionValid)
       return;
+    _initialPositionValid = false;
     Vector2 shootyVec = (_lineRenderer.GetPosition(0) - _lineRenderer.GetPosition(1));
     _ball.Shoot(shootyVec);
     _lineRenderer.enabled = false;
