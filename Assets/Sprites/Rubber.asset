@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77b5b5c0850985642b44cddaaf9c4f32, type: 3}
-  m_Name: Stone
+  m_Name: Rubber
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: efb9a6c7f8821ec43b6e90768d4aeb2a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2ad7f7105df39443887b96ed3fc8c82, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -31,6 +31,6 @@ MonoBehaviour:
     e31: 0
     e32: 0
     e33: 1
-  m_InstancedGameObject: {fileID: 422231939760292921, guid: 80f3ebe3f6572b248be641581f83ab29, type: 3}
+  m_InstancedGameObject: {fileID: 422231939760292921, guid: 99bca738aa69be248a20e1e04c340275, type: 3}
   m_Flags: 1
   m_ColliderType: 1
