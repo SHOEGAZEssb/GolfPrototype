@@ -13,7 +13,9 @@ public class BallScript : MonoBehaviour
   {
     _rigidBody = gameObject.GetComponent<Rigidbody2D>();
     _mapObserver = FindObjectOfType<MapObserver>();
-    _tilemapAreaEffector2d = FindObjectsOfType<Tilemap>().Where(tilemap => tilemap.name == "Floor").First().GetComponent<AreaEffector2D>();    
+    _tilemapAreaEffector2d = FindObjectsOfType<Tilemap>().Where(tilemap => tilemap.name == "Floor").First().GetComponent<AreaEffector2D>();
+
+    _rigidBody.freezeRotation = true;
   }
 
   // Update is called once per frame
